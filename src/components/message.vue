@@ -13,6 +13,7 @@
         <div class="content">
           <h4 class="text-muted">{{data.first_name+" "+data.last_name}}</h4>
           <h5 class="message" ref="message">{{data.message}}</h5>
+          <h5 v-html="data.html" class="font-weight-bold text-muted"></h5>
           <div class="note" v-if="data.note">
             <p class="text-muted font-weight-bold">{{data.note}}</p>
           </div>
