@@ -19,7 +19,7 @@
           </div>
           <span class="text-muted font-weight-bold font-italic" v-if="data.date_time">{{data.date_time}}</span>
           <span class="text-muted font-weight-bold font-italic" v-else>-</span>
-          <div class="item" v-for="(item,i) in data.items" v-bind:key="index" ref="status" v-bind:name="item.status">
+          <div class="item" v-for="(item,i) in data.items" v-bind:key="i" ref="status" v-bind:name="item.status">
             <h5 class="item-message">{{item.message}}</h5>
             <div class="item-status">
               <h5>{{item.status}}</h5>
@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     controlDOM() {
-      this.$refs.msg.map((res,i)=>{
+      this.$refs.msg.map((res)=>{
         var message = res.attributes.name.value;
 
         if(message === "Transaction submitted") {
@@ -65,7 +65,7 @@ export default {
         }
       })
 
-      this.$refs.status.map((res,i)=>{
+      this.$refs.status.map((res)=>{
         var status = res.attributes.name.value;
 
         if(status === "approved") {
